@@ -67,7 +67,7 @@ const About = () => {
               et en la création d&apos;expériences utilisateur intuitives.
             </p>
             <a
-              href="/CV Paris Lopez.pdf"
+              href="/Portfolio/CV Paris Lopez.pdf"
               download="CV_Paris_Lopez.pdf"
               className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
             >
