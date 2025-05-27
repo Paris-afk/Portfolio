@@ -20,7 +20,7 @@ const Hero = () => {
               </span>
             </h1>
             <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-              Développeur Full Stack passionné par la création d'expériences web exceptionnelles
+              Développeur Full Stack passionné par la création d&apos;expériences web exceptionnelles
             </p>
           </motion.div>
 
