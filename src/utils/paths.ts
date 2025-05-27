@@ -3,10 +3,8 @@
  * Works both locally and on GitHub Pages
  */
 export function getAssetPath(path: string): string {
-  const basePath = process.env.NODE_ENV === 'production' && process.env.GITHUB_ACTIONS === 'true' 
-    ? '/Portfolio' 
-    : '';
-  
+  // For GitHub Pages, always use the basePath
+  const basePath = '/Portfolio';
   return `${basePath}${path}`;
 }
 
