@@ -74,19 +74,19 @@ const WorkExperience = () => {
 
   const languages = [
     {
-      name: 'Español',
-      level: 'Nativo',
-      description: 'Lengua materna',
+      name: 'Espagnol',
+      level: 'Natif',
+      description: 'Langue maternelle',
     },
     {
-      name: 'Francés',
-      level: 'Avanzado',
-      description: 'Fluidez profesional',
+      name: 'Français',
+      level: 'Avancé',
+      description: 'Fluidité professionnelle',
     },
     {
-      name: 'Inglés',
-      level: 'Intermedio',
-      description: 'Comprensión técnica',
+      name: 'Anglais',
+      level: 'Intermédiaire',
+      description: 'Compréhension technique',
     },
   ];
 
@@ -208,7 +208,7 @@ const WorkExperience = () => {
           viewport={{ once: true }}
         >
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-            Idiomas
+            Langues
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {languages.map((language, index) => (
