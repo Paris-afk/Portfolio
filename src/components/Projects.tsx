@@ -2,32 +2,36 @@
 
 import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
+import { getPublicPath } from '@/utils/paths';
 
 const Projects = () => {
   const projects = [
     {
-      title: 'Plateforme E-Commerce',
-      description: 'Une solution e-commerce complète construite avec Next.js, TypeScript et intégration Stripe. Comprend la gestion des produits, panier d\'achat et paiements sécurisés.',
-      image: '/placeholder-project-1.jpg',
-      technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Stripe', 'PostgreSQL'],
-      github: 'https://github.com/Paris-afk?tab=repositories',
-      live: '#',
+      title: 'Welco',
+      description:
+        "Welco est la première plateforme de récupération de colis entre voisins. Elle est la solution du dernier mètre qui référence les personnes disponibles pour récupérer les colis de ses voisins, de manière sécurisée, en contrepartie d’une rémunération. Cette application dédiée aux particuliers vous permet de profiter de votre temps libre pour réceptionner des colis en toute simplicité et partager bien plus que cela.",
+      image: getPublicPath('welco_prueba.png'),
+      technologies: ['Flutter', 'Bloc', 'Node JS', 'Mongo'],
+      ios: 'https://apps.apple.com/fr/app/welco-relais-particuliers/id1528343005',
+      android: 'https://play.google.com/store/apps/details?id=io.welco.app&hl=fr',
     },
     {
-      title: 'Application de Gestion de Tâches',
-      description: 'Une application collaborative de gestion de tâches avec mises à jour en temps réel, fonctionnalité glisser-déposer et fonctionnalités de collaboration d\'équipe.',
-      image: '/placeholder-project-2.jpg',
-      technologies: ['React', 'Node.js', 'Socket.io', 'MongoDB', 'Express'],
-      github: 'https://github.com/Paris-afk?tab=repositories',
-      live: '#',
+      title: 'Web App Facebook',
+      description:
+        "Application web basée sur Facebook avec localStorage, utilisant Bootstrap et React.",
+      image: getPublicPath('FB_prueba.png'),
+      technologies: ['React', 'Bootstrap', 'localStorage'],
+      github: 'https://github.com/Paris-afk/FB_Front',
+      live: 'https://paris-afk.github.io/FB_Front/#/wall',
     },
     {
-      title: 'Tableau de Bord Météo',
-      description: 'Un tableau de bord météo responsive qui affiche la météo actuelle et les prévisions pour plusieurs villes avec de belles visualisations de données.',
-      image: '/placeholder-project-3.jpg',
-      technologies: ['React', 'Chart.js', 'Weather API', 'CSS Modules'],
-      github: 'https://github.com/Paris-afk?tab=repositories',
-      live: '#',
+      title: 'Vue Crypto',
+      description:
+        "Application web réalisée avec Vue.js et consommant une API de cryptomonnaies.",
+      image: getPublicPath('crypto_prueba.png'),
+      technologies: ['Vue.js', 'API', 'JavaScript'],
+      github: 'https://github.com/Paris-afk/Vue_Crypto',
+      live: 'https://paris-afk.github.io/Vue_Crypto/#/',
     },
   ];
 
@@ -61,12 +65,18 @@ const Projects = () => {
               className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
             >
               <div className="relative h-48 bg-gray-200">
-                {/* Placeholder for project image */}
-                <div className="absolute inset-0 flex items-center justify-center text-gray-500">
-                  <span className="text-sm">Capture d&apos;écran du projet</span>
-                </div>
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={`Capture d'écran de ${project.title}`}
+                    className="object-cover w-full h-full"
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center text-gray-500">
+                    <span className="text-sm">Capture d&apos;écran du projet</span>
+                  </div>
+                )}
               </div>
-              
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                   {project.title}
@@ -74,7 +84,6 @@ const Projects = () => {
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
                   {project.description}
                 </p>
-                
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, techIndex) => (
                     <span
@@ -85,26 +94,55 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-                
                 <div className="flex space-x-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 transition-colors duration-200"
-                  >
-                    <Github size={20} />
-                    <span>Code</span>
-                  </a>
-                  <a
-                    href={project.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 transition-colors duration-200"
-                  >
-                    <ExternalLink size={20} />
-                    <span>Démo</span>
-                  </a>
+                  {/* Welco: solo links de descarga, sin code */}
+                  {project.ios && project.android ? (
+                    <>
+                      <a
+                        href={project.ios}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 transition-colors duration-200"
+                      >
+                        <ExternalLink size={20} />
+                        <span>iOS</span>
+                      </a>
+                      <a
+                        href={project.android}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 transition-colors duration-200"
+                      >
+                        <ExternalLink size={20} />
+                        <span>Android</span>
+                      </a>
+                    </>
+                  ) : (
+                    <>
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 transition-colors duration-200"
+                        >
+                          <Github size={20} />
+                          <span>Code</span>
+                        </a>
+                      )}
+                      {project.live && (
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-blue-600 transition-colors duration-200"
+                        >
+                          <ExternalLink size={20} />
+                          <span>Démo</span>
+                        </a>
+                      )}
+                    </>
+                  )}
                 </div>
               </div>
             </motion.div>
